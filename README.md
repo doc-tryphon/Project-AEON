@@ -66,24 +66,9 @@ Cryptographic proof generation:
 - Anyone can verify the proof
 - Trustless AI outputs
 
-## Quick Start
-
-```bash
-# Clone and install
-git clone https://github.com/youruser/project-aeon.git
-cd project-aeon
-pip install -e ".[dev]"
-
-# Run CLI
-aeon --help
-
-# Run tests
-pytest
-```
-
 ## Development Status
 
-- [x] Sprint 1: Verification API Wrapper
+- [ ] Sprint 1: Verification API Wrapper
 - [ ] Sprint 2: BLACKWALL Mode Controller
 - [ ] Sprint 3: Dolores State Machine
 - [ ] Sprint 4: LLM Integration
@@ -92,4 +77,6 @@ pytest
 
 ## License
 
-MIT
+**Proprietary - All Rights Reserved**
+
+Copyright (c) 2024 Tryphon. This software and its documentation are confidential and proprietary. Unauthorized copying, distribution, modification, or use of this software, via any medium, is strictly prohibited without explicit written permission from the author.
