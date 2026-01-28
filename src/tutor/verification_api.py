@@ -34,6 +34,16 @@ try:
 except ImportError as e:
     print(f"WARNING: Vendor engine not found: {e}. Using Mock.")
     RawVerifier = None
+    # Mock symbols to prevent NameError in __init__
+    hadamard = lambda: "H"
+    pauli_x = lambda: "X"
+    pauli_y = lambda: "Y"
+    pauli_z = lambda: "Z"
+    identity_2 = lambda: "I"
+    cnot = lambda: "CNOT"
+    ket_0 = lambda: "|0>"
+    ket_1 = lambda: "|1>"
+    bell_phi_plus = lambda: "Phi+"
 
 # =============================================================================
 # 2. Data Models & Enums

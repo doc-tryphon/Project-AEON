@@ -1,12 +1,11 @@
-version: '3.8'
-
+version: "3.8"
 services:
-  aeon-api:
+  aeon:
     build: .
     container_name: aeon-api
     restart: always
+    env_file: .env
     ports:
       - "8000:8000"
-    env_file: .env
     volumes:
       - ./aeon_memory:/app/storage

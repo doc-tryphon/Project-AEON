@@ -393,7 +393,7 @@ class OpenAIProvider(LLMProvider):
             self._client = openai.OpenAI(api_key=self._api_key, base_url=base_url)
             self._async_client = openai.AsyncOpenAI(api_key=self._api_key, base_url=base_url)
             self._initialized = True
-            logger.info(f"OpenAI provider initialized with model {self._config.model}")
+            logger.info(f"OpenAI provider initialized with model {self._config.model} (URL: {base_url or 'default'})")
         except ImportError:
             raise LLMError(
                 "openai package not installed. Run: pip install openai"

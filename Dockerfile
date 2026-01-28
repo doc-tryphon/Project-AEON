@@ -1,13 +1,10 @@
-# Base Image: Python 3.10+ (Slim for smaller size)
-FROM python:3.10-slim
+FROM python:3.11-slim
 
-# Working Directory
 WORKDIR /app
+RUN apt-get update && apt-get install -y gcc && rm -rf /var/lib/apt/lists/*
 
-# System Dependencies (minimal)
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy Project Files
 COPY pyproject.toml .
@@ -36,6 +33,4 @@ ENV AEON_CORS_ORIGINS="https://bluerose.systems,http://localhost:3000"
 
 # Port
 EXPOSE 8000
-
-# Command to run the application
 CMD ["uvicorn", "src.api.app:app", "--host", "0.0.0.0", "--port", "8000"]
