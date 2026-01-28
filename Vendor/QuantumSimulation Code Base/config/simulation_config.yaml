@@ -1,0 +1,609 @@
+# Quantum Wormhole Simulation - Default Configuration
+# This YAML file contains default simulation parameters that can be easily modified
+# for different simulation scenarios and research purposes.
+
+# =============================================================================
+# SIMULATION METADATA
+# =============================================================================
+simulation:
+  name: "quantum_wormhole_simulation"
+  description: "Advanced quantum wormhole simulation with AI analysis"
+  version: "1.0.0"
+  author: "Quantum Physics Research Team"
+  
+# =============================================================================
+# TIME EVOLUTION PARAMETERS
+# =============================================================================
+time_evolution:
+  # Total number of simulation time steps
+  time_steps: 1000
+  
+  # Time step size in natural units (Planck time = 5.39e-44 seconds)
+  dt: 0.1
+  
+  # Alternative: specify total duration instead of steps
+  # duration: 100.0  # Total simulation time
+  
+  # Integration method for time evolution
+  integration_method: "runge_kutta_4"  # Options: euler, rk4, adaptive
+  
+  # Error tolerance for adaptive integration
+  error_tolerance: 1e-8
+
+# =============================================================================
+# PHYSICS PARAMETERS
+# =============================================================================
+physics:
+  # Wormhole geometry parameters
+  wormhole:
+    # Default wormhole type (will be overridden by presets)
+    type: "morris_thorne"
+    
+    # Throat radius in meters
+    throat_radius: 1.0e3
+    
+    # Wormhole mass in kg (0 for massless wormhole)
+    mass: 1.0e30
+    
+    # Shape function parameters
+    shape_function:
+      # Smoothness parameter for throat transition
+      alpha: 2.0
+      # Additional shape parameters
+      beta: 1.0
+      
+  # Exotic matter configuration
+  exotic_matter:
+    # Exotic matter type
+    type: "casimir"  # Options: casimir, phantom, quintessence
+    
+    # Energy density scale (negative for exotic matter)
+    energy_density_scale: -1.0e15  # J/m³
+    
+    # Pressure to energy density ratio (w parameter)
+    equation_of_state_parameter: -1.5
+    
+    # Casimir-specific parameters
+    casimir:
+      # Number of electromagnetic modes
+      num_modes: 1000
+      # Cutoff frequency for vacuum fluctuations
+      cutoff_frequency: 1.0e20  # Hz
+      # Plate separation for Casimir effect
+      plate_separation: 1.0e-6  # meters
+      
+  # Spacetime curvature parameters
+  curvature:
+    # Enable nonlinear gravity effects
+    enable_nonlinear_gravity: true
+    
+    # Higher-order curvature corrections
+    enable_higher_order_corrections: false
+    
+    # Cosmological constant
+    cosmological_constant: 0.0
+    
+  # Field equations solver parameters
+  field_equations:
+    # Numerical solver method
+    solver_method: "finite_difference"  # Options: finite_difference, spectral
+    
+    # Grid resolution for spatial discretization
+    spatial_resolution: 100
+    
+    # Boundary conditions
+    boundary_conditions: "asymptotically_flat"
+    
+    # Convergence criteria
+    convergence_tolerance: 1e-10
+    max_iterations: 1000
+
+# =============================================================================
+# QUANTUM SYSTEM PARAMETERS
+# =============================================================================
+quantum:
+  # Quantum circuit configuration
+  circuit:
+    # Number of qubits in the quantum system
+    num_qubits: 8
+    
+    # Circuit depth for quantum algorithms
+    circuit_depth: 10
+    
+    # Quantum gate set to use
+    gate_set: "universal"  # Options: universal, clifford, pauli
+    
+  # Wormhole traversal parameters
+  traversal:
+    # Probability of successful wormhole traversal
+    success_probability: 0.8
+    
+    # Quantum teleportation fidelity
+    teleportation_fidelity: 0.95
+    
+    # Information preservation during traversal
+    information_preservation: 0.99
+    
+  # Entanglement dynamics
+  entanglement:
+    # Initial entanglement strength
+    initial_entanglement: 1.0
+    
+    # Entanglement generation rate
+    generation_rate: 0.1
+    
+    # Entanglement decay rate
+    decay_rate: 0.01
+    
+    # Maximum entanglement achievable
+    max_entanglement: 1.0
+    
+  # Decoherence and noise
+  decoherence:
+    # Decoherence rate (1/time)
+    rate: 0.01
+    
+    # Coherence time (seconds in natural units)
+    coherence_time: 100.0
+    
+    # Noise model type
+    noise_model: "depolarizing"  # Options: depolarizing, amplitude_damping, phase_damping
+    
+    # Noise strength parameter
+    noise_strength: 0.001
+    
+  # Vacuum fluctuations
+  vacuum:
+    # Enable quantum vacuum effects
+    enable_vacuum_effects: true
+    
+    # Vacuum energy cutoff
+    energy_cutoff: 1.0e19  # Planck energy scale
+    
+    # Number of vacuum modes to simulate
+    num_modes: 1000
+    
+  # Quantum gravity effects
+  quantum_gravity:
+    # Enable quantum corrections to classical gravity
+    enable_quantum_corrections: true
+    
+    # Loop quantum gravity parameters
+    loop_quantum_gravity:
+      # Barbero-Immirzi parameter
+      barbero_immirzi: 0.274
+      # Discretization scale
+      discretization_scale: 1.0e-35  # Planck length
+      
+    # String theory parameters (if applicable)
+    string_theory:
+      # String coupling constant
+      coupling_constant: 0.1
+      # Compactification scale
+      compactification_scale: 1.0e-32
+
+# =============================================================================
+# AI SYSTEM PARAMETERS
+# =============================================================================
+ai:
+  # Enable/disable AI components
+  enable_stability_prediction: true
+  enable_parameter_optimization: true
+  enable_anomaly_detection: true
+  enable_reinforcement_learning: false
+  enable_quantum_ml: true
+  
+  # Stability prediction
+  stability_prediction:
+    # Model architecture
+    model_type: "ensemble"  # Options: neural_network, ensemble, transformer
+    
+    # Neural network parameters
+    neural_network:
+      hidden_layers: [256, 128, 64, 32]
+      activation: "relu"
+      dropout_rate: 0.2
+      learning_rate: 0.001
+      batch_size: 32
+      epochs: 100
+      
+    # Prediction threshold for stability
+    stability_threshold: 0.5
+    
+    # Prediction confidence threshold
+    confidence_threshold: 0.8
+    
+  # Parameter optimization
+  parameter_optimization:
+    # Optimization algorithm
+    algorithm: "genetic"  # Options: genetic, particle_swarm, bayesian
+    
+    # Genetic algorithm parameters
+    genetic_algorithm:
+      population_size: 50
+      num_generations: 100
+      crossover_rate: 0.8
+      mutation_rate: 0.1
+      selection_method: "tournament"
+      
+    # Optimization objectives
+    objectives:
+      - name: "stability"
+        weight: 0.4
+        target: "maximize"
+      - name: "traversability"
+        weight: 0.3
+        target: "maximize"
+      - name: "energy_efficiency"
+        weight: 0.2
+        target: "maximize"
+      - name: "quantum_coherence"
+        weight: 0.1
+        target: "maximize"
+        
+    # Parameter bounds for optimization
+    parameter_bounds:
+      throat_radius: [1.0e2, 1.0e4]
+      mass: [1.0e29, 1.0e31]
+      traversal_probability: [0.1, 1.0]
+      entanglement_strength: [0.1, 2.0]
+      
+  # Anomaly detection
+  anomaly_detection:
+    # Detection algorithm
+    algorithm: "isolation_forest"  # Options: isolation_forest, one_class_svm, autoencoder
+    
+    # Anomaly threshold
+    anomaly_threshold: 2.0
+    
+    # Training parameters
+    training:
+      contamination_rate: 0.1
+      n_estimators: 100
+      max_samples: "auto"
+      
+  # Reinforcement learning (if enabled)
+  reinforcement_learning:
+    # RL algorithm
+    algorithm: "ppo"  # Options: ppo, dqn, a3c
+    
+    # Environment parameters
+    environment:
+      state_space_dim: 10
+      action_space_dim: 5
+      reward_function: "stability_based"
+      
+    # Training parameters
+    training:
+      total_timesteps: 100000
+      learning_rate: 3.0e-4
+      batch_size: 64
+      gamma: 0.99
+      
+  # Quantum machine learning
+  quantum_ml:
+    # Enable quantum neural networks
+    enable_qnn: true
+    
+    # Quantum circuit parameters for ML
+    qml_circuit:
+      num_qubits: 8
+      num_layers: 3
+      entangling_gates: "cnot"
+      
+    # Variational parameters
+    variational:
+      num_parameters: 24
+      parameter_bounds: [-3.14159, 3.14159]
+      optimization_method: "adam"
+
+# =============================================================================
+# VISUALIZATION PARAMETERS
+# =============================================================================
+visualization:
+  # Enable real-time visualization
+  enable_real_time: true
+  
+  # Update interval for real-time plots (milliseconds)
+  update_interval: 100
+  
+  # Save visualization frames
+  save_frames: false
+  
+  # Output format for saved plots
+  output_format: "html"  # Options: html, png, svg, pdf
+  
+  # Spacetime visualization
+  spacetime:
+    # Grid resolution for 3D plots
+    grid_resolution: 50
+    
+    # Coordinate ranges for visualization
+    coordinate_ranges:
+      r_min: 1.0e2
+      r_max: 1.0e4
+      theta_range: [0, 3.14159]
+      phi_range: [0, 6.28318]
+      
+    # Visualization style
+    style:
+      colormap: "viridis"
+      opacity: 0.8
+      line_width: 2.0
+      
+  # Quantum state animation
+  quantum_animation:
+    # Animation parameters
+    total_time: 10.0
+    num_frames: 100
+    frame_duration: 50  # milliseconds
+    
+    # Bloch sphere visualization
+    bloch_sphere:
+      sphere_resolution: 20
+      trajectory_length: 50
+      
+  # Field visualization
+  field_visualization:
+    # Field types to visualize
+    enabled_fields:
+      - "electromagnetic"
+      - "gravitational"
+      - "exotic_matter"
+      
+    # Vector field parameters
+    vector_field:
+      arrow_scale: 1.0
+      density: 20
+      
+  # Interactive dashboard
+  dashboard:
+    # Dashboard dimensions
+    width: 1600
+    height: 1000
+    
+    # Panel configuration
+    panels:
+      - name: "spacetime"
+        enabled: true
+        position: [1, 1]
+      - name: "quantum"
+        enabled: true
+        position: [1, 2]
+      - name: "fields"
+        enabled: true
+        position: [2, 1]
+      - name: "ai_analysis"
+        enabled: true
+        position: [2, 2]
+        
+    # Real-time updates
+    auto_refresh: true
+    refresh_rate: 1.0  # seconds
+
+# =============================================================================
+# PERFORMANCE AND COMPUTATIONAL PARAMETERS
+# =============================================================================
+performance:
+  # Parallel processing
+  enable_parallel: true
+  
+  # Number of worker processes
+  num_workers: 4
+  
+  # Memory management
+  memory_limit_gb: 8.0
+  
+  # Enable memory cleanup
+  enable_memory_cleanup: true
+  
+  # Cleanup interval (simulation steps)
+  cleanup_interval: 100
+  
+  # Caching parameters
+  caching:
+    enable_caching: true
+    cache_size_limit: 1000  # Maximum number of cached items
+    cache_expiry_time: 3600  # seconds
+    
+  # Numerical precision
+  precision:
+    # Floating point precision
+    float_precision: "double"  # Options: single, double, extended
+    
+    # Convergence tolerances
+    tolerances:
+      physics: 1.0e-10
+      quantum: 1.0e-12
+      ai: 1.0e-6
+      
+  # Profiling and benchmarking
+  profiling:
+    enable_profiling: false
+    
+    # Profiling output file
+    output_file: "performance_profile.json"
+    
+    # Metrics to track
+    metrics:
+      - "execution_time"
+      - "memory_usage"
+      - "cpu_utilization"
+      - "convergence_rate"
+
+# =============================================================================
+# OUTPUT AND LOGGING PARAMETERS
+# =============================================================================
+output:
+  # Output directory
+  directory: "simulation_results"
+  
+  # Save simulation results
+  save_results: true
+  
+  # Results format
+  results_format: "json"  # Options: json, pickle, hdf5
+  
+  # Generate comprehensive report
+  generate_report: true
+  
+  # Report format
+  report_format: "json"  # Options: json, yaml, pdf
+  
+  # Data export settings
+  export:
+    # Export intermediate results
+    export_intermediate: false
+    
+    # Export frequency (simulation steps)
+    export_frequency: 100
+    
+    # Compression for large datasets
+    compression: "gzip"  # Options: none, gzip, bz2
+    
+  # Logging configuration
+  logging:
+    # Log level
+    level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+    
+    # Log file
+    file: "simulation.log"
+    
+    # Log format
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    
+    # Enable file rotation
+    rotation:
+      enabled: true
+      max_size_mb: 100
+      backup_count: 5
+
+# =============================================================================
+# VALIDATION AND ERROR HANDLING
+# =============================================================================
+validation:
+  # Enable parameter validation
+  enable_validation: true
+  
+  # Validation strictness
+  strictness: "medium"  # Options: strict, medium, relaxed
+  
+  # Physics validation checks
+  physics_checks:
+    # Check energy conditions
+    check_energy_conditions: true
+    
+    # Check causality violations
+    check_causality: true
+    
+    # Check metric signature
+    check_metric_signature: true
+    
+  # Quantum validation checks
+  quantum_checks:
+    # Check unitarity
+    check_unitarity: true
+    
+    # Check entanglement bounds
+    check_entanglement_bounds: true
+    
+    # Check quantum state normalization
+    check_normalization: true
+    
+  # Error handling
+  error_handling:
+    # Action on validation failure
+    on_validation_error: "warn"  # Options: error, warn, ignore
+    
+    # Maximum number of retries
+    max_retries: 3
+    
+    # Fallback to default parameters on error
+    use_fallback_params: true
+
+# =============================================================================
+# EXPERIMENTAL FEATURES
+# =============================================================================
+experimental:
+  # Enable experimental features (use with caution)
+  enable_experimental: false
+  
+  # Advanced physics models
+  advanced_physics:
+    # Enable higher-dimensional effects
+    extra_dimensions: false
+    num_extra_dimensions: 6
+    
+    # Enable modified gravity theories
+    modified_gravity: false
+    gravity_theory: "f(R)"  # Options: f(R), scalar_tensor, extra_dimensional
+    
+  # Quantum information features
+  quantum_information:
+    # Quantum error correction
+    error_correction: false
+    error_correction_code: "surface"
+    
+    # Quantum cryptography through wormholes
+    quantum_cryptography: false
+    
+  # Machine learning experiments
+  ml_experiments:
+    # Automatic hyperparameter tuning
+    auto_hyperparameter_tuning: false
+    
+    # Transfer learning from previous simulations
+    transfer_learning: false
+    
+    # Federated learning across multiple simulations
+    federated_learning: false
+
+# =============================================================================
+# USER-DEFINED EXTENSIONS
+# =============================================================================
+extensions:
+  # Custom physics modules
+  custom_physics: []
+  
+  # Custom quantum algorithms
+  custom_quantum: []
+  
+  # Custom AI models
+  custom_ai: []
+  
+  # Custom visualization modules
+  custom_visualization: []
+  
+  # Plugin system
+  plugins:
+    enabled: []
+    configuration: {}
+
+# =============================================================================
+# METADATA AND VERSIONING
+# =============================================================================
+metadata:
+  # Configuration file version
+  config_version: "1.0.0"
+  
+  # Last modified
+  last_modified: "2024-01-01T00:00:00Z"
+  
+  # Compatibility information
+  compatibility:
+    min_python_version: "3.8"
+    required_packages:
+      - "numpy>=1.21.0"
+      - "scipy>=1.7.0"
+      - "matplotlib>=3.5.0"
+      - "plotly>=5.0.0"
+      - "tensorflow>=2.8.0"
+      - "qutip>=4.6.0"
+      - "pyyaml>=6.0"
+    
+  # Citation information
+  citation:
+    title: "Quantum Wormhole Simulation Framework"
+    authors: ["Quantum Physics Research Team"]
+    year: 2024
+    doi: "10.xxxx/quantum.wormhole.2024"

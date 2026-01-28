@@ -1,0 +1,16 @@
+# Minimal Dependencies for Quantum Wormhole Simulation
+# Install with: pip install -r requirements-minimal.txt
+
+# Essential scientific computing
+numpy>=1.21.0,<2.0.0
+scipy>=1.7.0,<2.0.0
+matplotlib>=3.5.0,<4.0.0
+
+# Quantum mechanics (core requirement)
+qutip>=4.6.0,<5.0.0
+
+# Basic configuration support
+pyyaml>=6.0,<7.0
+
+# System utilities
+psutil>=5.8.0

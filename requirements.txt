@@ -1,31 +1,10 @@
-# Project AEON - Dependencies
-# Verified AI Physics Tutor
-
-# Core symbolic math
-sympy>=1.12
-
-# Numerical computing
-numpy>=1.24.0
-
-# LLM APIs (Sprint 4)
-openai>=1.0.0
-anthropic>=0.18.0
-
-# Data validation
-pydantic>=2.0.0
-
-# CLI interface
-rich>=13.0.0
-click>=8.0.0
-
-# Development dependencies
-pytest>=7.0.0
-pytest-cov>=4.0.0
-pytest-asyncio>=0.21.0
-black>=23.0.0
-ruff>=0.1.0
-mypy>=1.0.0
-
-# Quantum simulation (optional - for integration with Quantum Sim codebase)
-# qutip>=4.7.0
-# scipy>=1.10.0
+fastapi==0.115.6
+uvicorn==0.34.0
+python-multipart==0.0.20
+python-dotenv==1.0.1
+pydantic==2.10.4
+openai==1.59.3
+anthropic==0.42.0
+sympy==1.13.3
+rich==13.9.4
+click==8.1.8

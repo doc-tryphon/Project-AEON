@@ -1,0 +1,399 @@
+{
+  "name": "JARVIS Enhanced Truth Verification",
+  "nodes": [
+    {
+      "parameters": {
+        "name": "truthVerificationAgent",
+        "description": "Call this tool to verify responses using quantum-entangled multi-agent cross-examination."
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [940, 480],
+      "id": "truth-verification-agent",
+      "name": "Truth Verification Agent"
+    },
+    {
+      "parameters": {
+        "name": "quantumAttentionAgent", 
+        "description": "Call this tool for queries requiring quantum superposition attention analysis."
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [800, 480],
+      "id": "quantum-attention-agent",
+      "name": "Quantum Attention Agent"
+    },
+    {
+      "parameters": {
+        "name": "emailAgent",
+        "description": "Call this tool for any email actions."
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [380, 480],
+      "id": "d7d1e3e7-1171-4e0a-b02b-c5d405ebd09f",
+      "name": "Email Agent"
+    },
+    {
+      "parameters": {
+        "name": "contactAgent",
+        "description": "Call this tool for any contact related actions."
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [660, 480],
+      "id": "9298798f-46e6-46b8-8c3e-6c6e02a2eea1",
+      "name": "Contact Agent"
+    },
+    {
+      "parameters": {
+        "name": "contentCreator",
+        "description": "Call this tool to create blog posts."
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [520, 480],
+      "id": "3b39ea2a-7c02-481e-9a52-c7a7c6a7afe2",
+      "name": "Content Creator Agent"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Use this tool to search the internet",
+        "method": "POST",
+        "url": "https://api.tavily.com/search",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n \"api_key\": \"YOUR-API-KEY\",\n \"query\": \"{searchTerm}\",\n \"search_depth\": \"basic\",\n \"include_answer\": true,\n \"topic\": \"news\",\n \"include_raw_content\": true,\n \"max_results\": 3\n}",
+        "placeholderDefinitions": {
+          "values": [
+            {
+              "name": "searchTerm",
+              "description": "What the user has requested to search the internet for",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [840, 160],
+      "id": "fefda7ea-e118-4dbf-9bc4-0f88b1e9c63e",
+      "name": "Tavily"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [980, 160],
+      "id": "07aea172-3154-4d5e-af17-ae3a0e1025ff",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "name": "calendarAgent",
+        "description": "Call this tool for any calendar action."
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2,
+      "position": [240, 480],
+      "id": "9581a09a-be74-4db1-acae-3ea90c1c2063",
+      "name": "Calendar Agent"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "n8n-enhanced",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, -60],
+      "id": "82ee1170-ea93-40bc-a3ed-0a0588a78c95",
+      "name": "Enhanced Webhook",
+      "webhookId": "enhanced-jarvis-truth-verification"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1200, -60],
+      "id": "7802b29b-6389-40ed-baaf-524f3aec3cb5",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.body.query }}",
+        "options": {
+          "systemMessage": "=# Overview\nYou are JARVIS Enhanced - the ultimate personal assistant with quantum-enhanced reasoning and truth verification capabilities. Your job is to determine the best approach for each query and route to appropriate tools.\n\n## Enhanced Capabilities\n- truthVerificationAgent: Use for important decisions, controversial topics, or when high confidence is required\n- quantumAttentionAgent: Use for complex reasoning tasks that may have contradictory interpretations\n- All previous tools: emailAgent, calendarAgent, contactAgent, contentCreator, Tavily search, Calculator\n\n## Enhanced Routing Logic\n\n### High-Confidence Queries (use truthVerificationAgent):\n- Important business decisions\n- Medical or safety advice\n- Financial recommendations\n- Controversial or politically sensitive topics\n- Legal advice requests\n- Technical specifications with high stakes\n- Any query where being wrong could have significant consequences\n\n### Complex Reasoning Queries (use quantumAttentionAgent):\n- Philosophical questions\n- Ethical dilemmas\n- Queries with multiple valid interpretations\n- Creative problem solving with constraints\n- Analysis requiring consideration of contradictory evidence\n- Strategic planning with uncertain outcomes\n\n### Standard Queries (use existing tools):\n- Simple factual questions → Tavily search\n- Email tasks → contactAgent + emailAgent\n- Calendar management → calendarAgent\n- Content creation → contentCreator\n- Math calculations → Calculator\n\n## Decision Framework\n1. Analyze query complexity and importance\n2. Determine if truth verification is needed (high stakes, controversial, safety-critical)\n3. Determine if quantum attention is needed (contradictory interpretations, complex reasoning)\n4. Route to appropriate tool(s)\n5. For enhanced tools, include context about why this routing was chosen\n\n## Enhanced Rules\n- Always explain your routing decision for enhanced tools\n- For truth verification: mention that multiple AI agents will cross-examine the response\n- For quantum attention: mention that the system will consider multiple interpretations simultaneously\n- Combine tools when appropriate (e.g., search + truth verification for important factual claims)\n\n## Examples\n\n### Truth Verification Example:\nUser: \"Should I invest my retirement savings in cryptocurrency?\"\nResponse: \"This is a high-stakes financial decision that requires truth verification. I'm routing this to our truth verification network where multiple AI agents will cross-examine different perspectives and provide you with a thoroughly vetted response. Please wait while I engage the verification process...\"\nAction: Use truthVerificationAgent\n\n### Quantum Attention Example:\nUser: \"Is it ethical to use AI for hiring decisions?\"\nResponse: \"This ethical question has multiple valid perspectives that need simultaneous consideration. I'm engaging our quantum attention system to explore contradictory viewpoints before providing a comprehensive analysis.\"\nAction: Use quantumAttentionAgent\n\n### Combined Example:\nUser: \"What are the latest developments in quantum computing and are they commercially viable?\"\nResponse: \"I'll search for the latest information and then verify the commercial viability claims through our truth verification network.\"\nAction: First use Tavily, then use truthVerificationAgent with the search results as context\n\nCurrent date/time: {{ $now }}\n\nRemember: You are not just routing - you are providing enhanced intelligence with quantum-inspired reasoning and distributed truth verification. Use these capabilities wisely for queries that truly benefit from them."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [460, -60],
+      "id": "f0ea154b-48c7-438b-b8ea-35d94ba3ec54",
+      "name": "Enhanced JARVIS"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4o",
+          "mode": "list",
+          "cachedResultName": "gpt-4o"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [240, 160],
+      "id": "70e47629-a51a-4c1e-905a-2a4f47fdd210",
+      "name": "4o",
+      "credentials": {
+        "openAiApi": {
+          "id": "BP9v81AwJlpYGStD",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Enhanced Webhook').item.json.headers.host }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [380, 160],
+      "id": "10e6db58-6642-45dd-8777-4664fdfb01a2",
+      "name": "Enhanced Memory"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Execute Python script for quantum attention processing",
+        "method": "POST",
+        "url": "http://localhost:8001/quantum-attention",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"query\": \"{query}\",\n  \"context\": \"{context}\",\n  \"force_collapse\": false,\n  \"num_heads\": 8,\n  \"num_interpretations\": 4\n}",
+        "placeholderDefinitions": {
+          "values": [
+            {
+              "name": "query",
+              "description": "The query requiring quantum attention analysis",
+              "type": "string"
+            },
+            {
+              "name": "context",
+              "description": "Additional context for the query",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [1080, 160],
+      "id": "quantum-attention-http",
+      "name": "Quantum Attention API"
+    },
+    {
+      "parameters": {
+        "toolDescription": "Execute truth verification using multiple LLM agents",
+        "method": "POST", 
+        "url": "http://localhost:8002/truth-verification",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"query\": \"{query}\",\n  \"context\": \"{context}\",\n  \"num_agents\": 3,\n  \"consistency_threshold\": 0.7\n}",
+        "placeholderDefinitions": {
+          "values": [
+            {
+              "name": "query",
+              "description": "The query requiring truth verification",
+              "type": "string"
+            },
+            {
+              "name": "context", 
+              "description": "Additional context for verification",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
+      "typeVersion": 1.1,
+      "position": [1220, 160],
+      "id": "truth-verification-http",
+      "name": "Truth Verification API"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Enhanced Webhook": {
+      "main": [
+        [
+          {
+            "node": "Enhanced JARVIS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enhanced JARVIS": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "4o": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Enhanced JARVIS",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enhanced Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Enhanced JARVIS",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email Agent": {
+      "ai_tool": [
+        [
+          {
+            "node": "Enhanced JARVIS",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contact Agent": {
+      "ai_tool": [
+        [
+          {
+            "node": "Enhanced JARVIS",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content Creator Agent": {
+      "ai_tool": [
+        [
+          {
+            "node": "Enhanced JARVIS",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calendar Agent": {
+      "ai_tool": [
+        [
+          {
+            "node": "Enhanced JARVIS",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tavily": {
+      "ai_tool": [
+        [
+          {
+            "node": "Enhanced JARVIS",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "Enhanced JARVIS",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Truth Verification Agent": {
+      "ai_tool": [
+        [
+          {
+            "node": "Enhanced JARVIS",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Quantum Attention Agent": {
+      "ai_tool": [
+        [
+          {
+            "node": "Enhanced JARVIS",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Quantum Attention API": {
+      "ai_tool": [
+        [
+          {
+            "node": "Enhanced JARVIS",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Truth Verification API": {
+      "ai_tool": [
+        [
+          {
+            "node": "Enhanced JARVIS",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "quantum-enhanced-jarvis-v1",
+  "meta": {
+    "instanceId": "quantum-enhanced-reasoning-architecture"
+  },
+  "id": "QuantumEnhancedJARVIS",
+  "tags": ["quantum", "truth-verification", "enhanced-reasoning"]
+}

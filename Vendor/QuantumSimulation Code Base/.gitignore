@@ -1,0 +1,102 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.vs/
+*.code-workspace
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Project specific
+data/simulations/
+data/cache/
+data/results/
+logs/*.log
+examples/output/
+*.tmp
+temp/
+cache/
+
+# Large data files (use Git LFS instead)
+*.pkl
+*.hdf5
+*.npz
+*.h5
+*.dat
+
+# Visualization outputs
+*.png
+*.jpg
+*.gif
+*.mp4
+*.avi
+!docs/images/*.png
+!docs/images/*.jpg
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Documentation
+docs/_build/
+site/
+
+# Logs
+*.log
+installation.log
+runtime_config.json
+
+# Temporary files
+*.bak
+*.orig
+*~

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  aeon-api:
+    build: .
+    container_name: aeon-api
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - ANTHROPIC_BASE_URL=https://openrouter.ai/api
+      - AEON_CORS_ORIGINS=https://bluerose.systems,http://localhost:3000
+    volumes:
+      # PERSISTENCE: Map a folder on VPS to the container's brain
+      # This saves "Transmission Capsules" (JSON memory) to disk
+      - ./aeon_memory:/app/storage
+    networks:
+      - n8n_default
+
+networks:
+  n8n_default:
+    external: true

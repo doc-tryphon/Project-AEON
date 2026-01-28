@@ -1,0 +1,11 @@
+============================================================
+CHSH Inequality Symbolic Derivation
+============================================================
+Traceback (most recent call last):
+  File "E:\SD Card Storage\Projects\Quantum Sim\QuantumSimulation Code Base\verify_chsh_symbolic.py", line 16, in <module>
+    print("\nBell state |\u03a6+\u27e9 = (|00\u27e9 + |11\u27e9)/\u221a2")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2032.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u03a6' in position 14: character maps to <undefined>
