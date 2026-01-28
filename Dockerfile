@@ -24,7 +24,7 @@ COPY README.md .
 # First, install the bundled Quantum Engine (Vendor Strategy)
 # We use --no-deps to avoid re-installing numpy if we want to control it, 
 # but allowing deps is usually safer for MVP.
-RUN pip install ./vendor/*
+RUN pip install ./vendor
 
 # Then install AEON and its standard dependencies
 RUN pip install .

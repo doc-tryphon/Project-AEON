@@ -1,0 +1,44 @@
+# Quantum Wormhole Simulation Framework - Core Requirements
+# Install with: pip install -r requirements.txt
+
+# Core scientific computing
+numpy>=1.21.0,<2.0.0
+scipy>=1.7.0,<2.0.0
+matplotlib>=3.5.0,<4.0.0
+
+# Quantum mechanics toolkit
+qutip>=4.6.0,<5.0.0
+cirq>=1.0.0,<2.0.0
+
+# Configuration and utilities
+pyyaml>=6.0,<7.0
+click>=8.0.0,<9.0.0
+psutil>=5.8.0
+
+# Machine learning and AI
+tensorflow>=2.8.0,<3.0.0
+tensorflow-probability>=0.24.0,<1.0.0
+tf-keras>=2.15.0,<3.0.0
+torch>=1.10.0,<3.0.0
+scikit-learn>=1.0.0,<2.0.0
+
+# Advanced visualization
+plotly>=5.0.0,<6.0.0
+dash>=2.0.0,<3.0.0
+seaborn>=0.11.0,<1.0.0
+
+# Data manipulation
+pandas>=1.3.0,<3.0.0
+
+# Symbolic mathematics
+sympy>=1.9,<2.0
+
+# Interactive computing
+jupyterlab>=3.0.0,<5.0.0
+ipywidgets>=7.6.0
+
+# Testing framework
+pytest>=6.2.0,<8.0.0
+
+# Quantum Machine Learning (optional - may require specific environment)
+# tensorflow-quantum>=0.7.0  # Uncomment when available

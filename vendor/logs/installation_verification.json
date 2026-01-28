@@ -1,0 +1,19 @@
+{
+  "core_modules": {
+    "total": 6,
+    "passed": 6,
+    "failed": []
+  },
+  "optional_modules": {
+    "total": 6,
+    "passed": 6,
+    "failed": []
+  },
+  "project_modules": {
+    "total": 5,
+    "passed": 5,
+    "failed": []
+  },
+  "timestamp": "2025-09-08T21:34:19.055180",
+  "success": true
+}

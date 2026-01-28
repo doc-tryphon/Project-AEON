@@ -1,0 +1,788 @@
+{
+  "metadata": {
+    "title": "Wormhole Configuration Presets",
+    "description": "Predefined configurations for different types of theoretical wormholes",
+    "version": "1.0.0",
+    "last_updated": "2024-01-01",
+    "author": "Quantum Physics Research Team",
+    "references": [
+      "Morris, M. S., & Thorne, K. S. (1988). Wormholes in spacetime and their use for interstellar travel",
+      "Ellis, H. G. (1973). Ether flow through a drainhole",
+      "Visser, M. (1995). Lorentzian Wormholes: From Einstein to Hawking"
+    ]
+  },
+
+  "presets": {
+    "morris_thorne_standard": {
+      "name": "Morris-Thorne Standard Wormhole",
+      "description": "Classic traversable wormhole as described by Morris and Thorne (1988)",
+      "type": "morris_thorne",
+      "physics": {
+        "wormhole": {
+          "throat_radius": 1000.0,
+          "mass": 0.0,
+          "shape_function": {
+            "type": "exponential",
+            "alpha": 2.0,
+            "beta": 1.0
+          }
+        },
+        "exotic_matter": {
+          "type": "casimir",
+          "energy_density_scale": -1.0e15,
+          "equation_of_state_parameter": -1.5,
+          "casimir": {
+            "num_modes": 1000,
+            "cutoff_frequency": 1.0e20,
+            "plate_separation": 1.0e-6
+          }
+        },
+        "field_equations": {
+          "solver_method": "finite_difference",
+          "spatial_resolution": 100,
+          "boundary_conditions": "asymptotically_flat"
+        }
+      },
+      "quantum": {
+        "circuit": {
+          "num_qubits": 8,
+          "circuit_depth": 10
+        },
+        "traversal": {
+          "success_probability": 0.85,
+          "teleportation_fidelity": 0.95,
+          "information_preservation": 0.99
+        },
+        "entanglement": {
+          "initial_entanglement": 1.0,
+          "generation_rate": 0.1,
+          "decay_rate": 0.01
+        }
+      },
+      "stability_metrics": {
+        "expected_stability": 0.75,
+        "traversability_index": 0.8,
+        "energy_violation_minimal": true
+      },
+      "usage_notes": [
+        "Standard configuration for educational demonstrations",
+        "Good balance between stability and exotic matter requirements",
+        "Suitable for quantum teleportation experiments"
+      ]
+    },
+
+    "morris_thorne_large": {
+      "name": "Large-Scale Morris-Thorne Wormhole",
+      "description": "Macroscopic wormhole suitable for spacecraft traversal",
+      "type": "morris_thorne",
+      "physics": {
+        "wormhole": {
+          "throat_radius": 1.0e6,
+          "mass": 1.0e30,
+          "shape_function": {
+            "type": "exponential",
+            "alpha": 1.5,
+            "beta": 0.8
+          }
+        },
+        "exotic_matter": {
+          "type": "casimir",
+          "energy_density_scale": -5.0e14,
+          "equation_of_state_parameter": -1.2,
+          "casimir": {
+            "num_modes": 5000,
+            "cutoff_frequency": 5.0e19,
+            "plate_separation": 1.0e-3
+          }
+        },
+        "field_equations": {
+          "solver_method": "spectral",
+          "spatial_resolution": 200,
+          "boundary_conditions": "asymptotically_flat"
+        }
+      },
+      "quantum": {
+        "circuit": {
+          "num_qubits": 12,
+          "circuit_depth": 15
+        },
+        "traversal": {
+          "success_probability": 0.9,
+          "teleportation_fidelity": 0.98,
+          "information_preservation": 0.995
+        },
+        "entanglement": {
+          "initial_entanglement": 0.8,
+          "generation_rate": 0.05,
+          "decay_rate": 0.005
+        }
+      },
+      "stability_metrics": {
+        "expected_stability": 0.85,
+        "traversability_index": 0.95,
+        "energy_violation_minimal": true
+      },
+      "usage_notes": [
+        "Suitable for studying macroscopic quantum effects",
+        "Requires significant computational resources",
+        "High stability due to large throat radius"
+      ]
+    },
+
+    "morris_thorne_micro": {
+      "name": "Microscopic Morris-Thorne Wormhole",
+      "description": "Planck-scale wormhole for quantum gravity studies",
+      "type": "morris_thorne",
+      "physics": {
+        "wormhole": {
+          "throat_radius": 1.616e-35,
+          "mass": 2.176e-8,
+          "shape_function": {
+            "type": "power_law",
+            "alpha": 3.0,
+            "beta": 2.0
+          }
+        },
+        "exotic_matter": {
+          "type": "phantom",
+          "energy_density_scale": -1.0e113,
+          "equation_of_state_parameter": -2.0,
+          "phantom": {
+            "field_amplitude": 1.0,
+            "potential_depth": 1.0e10
+          }
+        },
+        "field_equations": {
+          "solver_method": "finite_difference",
+          "spatial_resolution": 50,
+          "boundary_conditions": "periodic"
+        }
+      },
+      "quantum": {
+        "circuit": {
+          "num_qubits": 4,
+          "circuit_depth": 8
+        },
+        "traversal": {
+          "success_probability": 0.6,
+          "teleportation_fidelity": 0.85,
+          "information_preservation": 0.9
+        },
+        "entanglement": {
+          "initial_entanglement": 0.5,
+          "generation_rate": 1.0,
+          "decay_rate": 0.1
+        },
+        "quantum_gravity": {
+          "enable_quantum_corrections": true,
+          "loop_quantum_gravity": {
+            "barbero_immirzi": 0.274,
+            "discretization_scale": 1.616e-35
+          }
+        }
+      },
+      "stability_metrics": {
+        "expected_stability": 0.4,
+        "traversability_index": 0.5,
+        "energy_violation_significant": true
+      },
+      "usage_notes": [
+        "Requires quantum gravity corrections",
+        "High decoherence rates due to small size",
+        "Suitable for studying Planck-scale physics"
+      ]
+    },
+
+    "ellis_wormhole": {
+      "name": "Ellis Drainhole Wormhole",
+      "description": "Original Ellis wormhole (drainhole) configuration",
+      "type": "ellis",
+      "physics": {
+        "wormhole": {
+          "throat_radius": 2000.0,
+          "mass": 0.0,
+          "shape_function": {
+            "type": "hyperbolic",
+            "alpha": 1.0,
+            "beta": 1.0
+          },
+          "ellis_parameters": {
+            "drainhole_parameter": 1.0,
+            "asymptotic_flatness": true
+          }
+        },
+        "exotic_matter": {
+          "type": "phantom",
+          "energy_density_scale": -2.0e15,
+          "equation_of_state_parameter": -1.8,
+          "phantom": {
+            "field_amplitude": 1.5,
+            "potential_depth": 5.0e9,
+            "kinetic_energy_negative": true
+          }
+        },
+        "field_equations": {
+          "solver_method": "finite_difference",
+          "spatial_resolution": 150,
+          "boundary_conditions": "asymptotically_flat"
+        }
+      },
+      "quantum": {
+        "circuit": {
+          "num_qubits": 6,
+          "circuit_depth": 12
+        },
+        "traversal": {
+          "success_probability": 0.7,
+          "teleportation_fidelity": 0.9,
+          "information_preservation": 0.95
+        },
+        "entanglement": {
+          "initial_entanglement": 0.9,
+          "generation_rate": 0.08,
+          "decay_rate": 0.02
+        }
+      },
+      "stability_metrics": {
+        "expected_stability": 0.6,
+        "traversability_index": 0.75,
+        "energy_violation_moderate": true
+      },
+      "usage_notes": [
+        "Historical significance - first wormhole solution",
+        "Simpler geometry than Morris-Thorne",
+        "Good for comparison studies"
+      ]
+    },
+
+    "schwarzschild_based": {
+      "name": "Schwarzschild-Based Wormhole",
+      "description": "Wormhole derived from Schwarzschild geometry with exotic matter",
+      "type": "schwarzschild_modified",
+      "physics": {
+        "wormhole": {
+          "throat_radius": 2950.0,
+          "mass": 1.0e30,
+          "schwarzschild_radius": 2950.0,
+          "shape_function": {
+            "type": "schwarzschild_modified",
+            "alpha": 1.0,
+            "beta": 0.5
+          }
+        },
+        "exotic_matter": {
+          "type": "quintessence",
+          "energy_density_scale": -3.0e14,
+          "equation_of_state_parameter": -0.8,
+          "quintessence": {
+            "field_value": 1.0,
+            "potential_type": "exponential",
+            "potential_parameters": {
+              "V0": 1.0e12,
+              "lambda": 0.1
+            }
+          }
+        },
+        "field_equations": {
+          "solver_method": "spectral",
+          "spatial_resolution": 200,
+          "boundary_conditions": "schwarzschild_asymptotic"
+        }
+      },
+      "quantum": {
+        "circuit": {
+          "num_qubits": 10,
+          "circuit_depth": 20
+        },
+        "traversal": {
+          "success_probability": 0.75,
+          "teleportation_fidelity": 0.92,
+          "information_preservation": 0.97
+        },
+        "entanglement": {
+          "initial_entanglement": 0.7,
+          "generation_rate": 0.06,
+          "decay_rate": 0.015
+        },
+        "hawking_radiation": {
+          "enable_hawking": true,
+          "temperature": 2.1e-8,
+          "emission_rate": 1.0e-30
+        }
+      },
+      "stability_metrics": {
+        "expected_stability": 0.65,
+        "traversability_index": 0.7,
+        "energy_violation_moderate": true
+      },
+      "usage_notes": [
+        "Includes Hawking radiation effects",
+        "More realistic mass distribution",
+        "Suitable for studying black hole-wormhole transitions"
+      ]
+    },
+
+    "visser_thin_shell": {
+      "name": "Visser Thin-Shell Wormhole",
+      "description": "Thin-shell wormhole construction following Visser's approach",
+      "type": "visser_thin_shell",
+      "physics": {
+        "wormhole": {
+          "throat_radius": 1500.0,
+          "mass": 5.0e29,
+          "shape_function": {
+            "type": "piecewise",
+            "inner_region": "flat",
+            "outer_region": "schwarzschild",
+            "junction_radius": 1500.0
+          },
+          "thin_shell": {
+            "surface_energy_density": -1.0e16,
+            "surface_pressure": -2.0e16,
+            "shell_thickness": 1.0e-10
+          }
+        },
+        "exotic_matter": {
+          "type": "surface_confined",
+          "energy_density_scale": -1.0e16,
+          "equation_of_state_parameter": -2.0,
+          "confinement": {
+            "surface_only": true,
+            "delta_function_profile": true
+          }
+        },
+        "field_equations": {
+          "solver_method": "junction_conditions",
+          "spatial_resolution": 100,
+          "boundary_conditions": "israel_junction"
+        }
+      },
+      "quantum": {
+        "circuit": {
+          "num_qubits": 8,
+          "circuit_depth": 14
+        },
+        "traversal": {
+          "success_probability": 0.8,
+          "teleportation_fidelity": 0.93,
+          "information_preservation": 0.96
+        },
+        "entanglement": {
+          "initial_entanglement": 0.6,
+          "generation_rate": 0.12,
+          "decay_rate": 0.008
+        }
+      },
+      "stability_metrics": {
+        "expected_stability": 0.7,
+        "traversability_index": 0.85,
+        "energy_violation_localized": true
+      },
+      "usage_notes": [
+        "Minimizes exotic matter requirements",
+        "Concentrates exotic matter at throat only",
+        "More physically plausible construction"
+      ]
+    },
+
+    "euclidean_wormhole": {
+      "name": "Euclidean Wormhole",
+      "description": "Euclidean (imaginary time) wormhole for quantum tunneling studies",
+      "type": "euclidean",
+      "physics": {
+        "wormhole": {
+          "throat_radius": 800.0,
+          "mass": 0.0,
+          "euclidean_parameters": {
+            "instanton_action": 157.08,
+            "bounce_solution": true,
+            "tunneling_amplitude": 1.0e-68
+          },
+          "shape_function": {
+            "type": "instanton",
+            "alpha": 1.0,
+            "beta": 0.0
+          }
+        },
+        "exotic_matter": {
+          "type": "instanton_field",
+          "energy_density_scale": -8.0e14,
+          "equation_of_state_parameter": -1.0,
+          "instanton": {
+            "field_configuration": "bounce",
+            "barrier_height": 1.0e10,
+            "barrier_width": 100.0
+          }
+        },
+        "field_equations": {
+          "solver_method": "euclidean_path_integral",
+          "spatial_resolution": 80,
+          "boundary_conditions": "periodic_euclidean"
+        }
+      },
+      "quantum": {
+        "circuit": {
+          "num_qubits": 6,
+          "circuit_depth": 16
+        },
+        "traversal": {
+          "success_probability": 0.5,
+          "teleportation_fidelity": 0.88,
+          "information_preservation": 0.92,
+          "tunneling_probability": 1.0e-68
+        },
+        "entanglement": {
+          "initial_entanglement": 0.8,
+          "generation_rate": 0.15,
+          "decay_rate": 0.05
+        },
+        "path_integral": {
+          "enable_path_integral": true,
+          "num_paths": 1000,
+          "euclidean_time": 100.0
+        }
+      },
+      "stability_metrics": {
+        "expected_stability": 0.3,
+        "traversability_index": 0.4,
+        "quantum_tunneling_dominant": true
+      },
+      "usage_notes": [
+        "Primarily for quantum tunneling studies",
+        "Not classically traversable",
+        "Important for quantum gravity and cosmology"
+      ]
+    },
+
+    "rotating_wormhole": {
+      "name": "Rotating (Kerr-like) Wormhole",
+      "description": "Wormhole with angular momentum and rotation",
+      "type": "rotating",
+      "physics": {
+        "wormhole": {
+          "throat_radius": 1200.0,
+          "mass": 2.0e30,
+          "angular_momentum": 1.0e45,
+          "rotation_parameter": 0.8,
+          "shape_function": {
+            "type": "kerr_modified",
+            "alpha": 1.2,
+            "beta": 0.9
+          },
+          "kerr_parameters": {
+            "spin_parameter": 0.8,
+            "frame_dragging": true,
+            "ergosphere_radius": 1800.0
+          }
+        },
+        "exotic_matter": {
+          "type": "rotating_fluid",
+          "energy_density_scale": -1.5e15,
+          "equation_of_state_parameter": -1.3,
+          "rotation": {
+            "angular_velocity": 0.01,
+            "centrifugal_effects": true,
+            "coriolis_effects": true
+          }
+        },
+        "field_equations": {
+          "solver_method": "kerr_newman_modified",
+          "spatial_resolution": 120,
+          "boundary_conditions": "kerr_asymptotic"
+        }
+      },
+      "quantum": {
+        "circuit": {
+          "num_qubits": 10,
+          "circuit_depth": 18
+        },
+        "traversal": {
+          "success_probability": 0.65,
+          "teleportation_fidelity": 0.89,
+          "information_preservation": 0.94
+        },
+        "entanglement": {
+          "initial_entanglement": 0.85,
+          "generation_rate": 0.09,
+          "decay_rate": 0.012
+        },
+        "frame_dragging": {
+          "lense_thirring_effect": true,
+          "geodetic_precession": 0.01
+        }
+      },
+      "stability_metrics": {
+        "expected_stability": 0.55,
+        "traversability_index": 0.68,
+        "rotational_stability": 0.7
+      },
+      "usage_notes": [
+        "Complex dynamics due to rotation",
+        "Frame-dragging effects on quantum states",
+        "Suitable for studying angular momentum transport"
+      ]
+    },
+
+    "charged_wormhole": {
+      "name": "Charged (Reissner-Nordström-like) Wormhole",
+      "description": "Electrically charged wormhole configuration",
+      "type": "charged",
+      "physics": {
+        "wormhole": {
+          "throat_radius": 1800.0,
+          "mass": 1.5e30,
+          "electric_charge": 1.0e20,
+          "magnetic_charge": 0.0,
+          "shape_function": {
+            "type": "reissner_nordstrom_modified",
+            "alpha": 1.1,
+            "beta": 0.7
+          },
+          "electromagnetic": {
+            "field_strength": 1.0e12,
+            "field_configuration": "monopole"
+          }
+        },
+        "exotic_matter": {
+          "type": "charged_fluid",
+          "energy_density_scale": -2.5e15,
+          "equation_of_state_parameter": -1.4,
+          "electromagnetic": {
+            "charge_density": 1.0e15,
+            "current_density": [0.0, 0.0, 0.0],
+            "conductivity": 1.0e6
+          }
+        },
+        "field_equations": {
+          "solver_method": "einstein_maxwell",
+          "spatial_resolution": 140,
+          "boundary_conditions": "charged_asymptotic"
+        }
+      },
+      "quantum": {
+        "circuit": {
+          "num_qubits": 12,
+          "circuit_depth": 22
+        },
+        "traversal": {
+          "success_probability": 0.72,
+          "teleportation_fidelity": 0.94,
+          "information_preservation": 0.98
+        },
+        "entanglement": {
+          "initial_entanglement": 0.75,
+          "generation_rate": 0.07,
+          "decay_rate": 0.009
+        },
+        "electromagnetic_effects": {
+          "quantum_electrodynamics": true,
+          "vacuum_polarization": true,
+          "schwinger_effect": false
+        }
+      },
+      "stability_metrics": {
+        "expected_stability": 0.68,
+        "traversability_index": 0.78,
+        "electromagnetic_stability": 0.8
+      },
+      "usage_notes": [
+        "Includes electromagnetic field effects",
+        "Suitable for studying charged particle dynamics",
+        "QED effects in curved spacetime"
+      ]
+    },
+
+    "braneworld_wormhole": {
+      "name": "Higher-Dimensional Braneworld Wormhole",
+      "description": "Wormhole embedded in higher-dimensional spacetime",
+      "type": "braneworld",
+      "physics": {
+        "wormhole": {
+          "throat_radius": 2500.0,
+          "mass": 3.0e30,
+          "extra_dimensions": 6,
+          "brane_tension": -1.0e16,
+          "shape_function": {
+            "type": "ads_modified",
+            "alpha": 0.8,
+            "beta": 1.2,
+            "ads_radius": 1.0e26
+          },
+          "higher_dimensional": {
+            "bulk_curvature": -1.0e-52,
+            "warping_factor": 1.5,
+            "compactification_scale": 1.0e-32
+          }
+        },
+        "exotic_matter": {
+          "type": "brane_localized",
+          "energy_density_scale": -3.0e15,
+          "equation_of_state_parameter": -1.6,
+          "braneworld": {
+            "bulk_viscosity": 0.0,
+            "brane_cosmological_constant": -1.0e12,
+            "radion_field": 1.0
+          }
+        },
+        "field_equations": {
+          "solver_method": "ads_cft",
+          "spatial_resolution": 160,
+          "boundary_conditions": "ads_boundary"
+        }
+      },
+      "quantum": {
+        "circuit": {
+          "num_qubits": 16,
+          "circuit_depth": 25
+        },
+        "traversal": {
+          "success_probability": 0.82,
+          "teleportation_fidelity": 0.96,
+          "information_preservation": 0.99
+        },
+        "entanglement": {
+          "initial_entanglement": 0.9,
+          "generation_rate": 0.05,
+          "decay_rate": 0.003
+        },
+        "holographic": {
+          "ads_cft_correspondence": true,
+          "holographic_entanglement": true,
+          "bulk_reconstruction": true
+        }
+      },
+      "stability_metrics": {
+        "expected_stability": 0.78,
+        "traversability_index": 0.88,
+        "higher_dimensional_stability": 0.85
+      },
+      "usage_notes": [
+        "Requires AdS/CFT correspondence",
+        "Computationally intensive",
+        "Includes holographic quantum information"
+      ]
+    }
+  },
+
+  "preset_collections": {
+    "educational_suite": {
+      "description": "Collection of presets suitable for educational purposes",
+      "presets": [
+        "morris_thorne_standard",
+        "ellis_wormhole",
+        "schwarzschild_based"
+      ],
+      "difficulty_level": "beginner_to_intermediate",
+      "computational_requirements": "moderate"
+    },
+
+    "research_suite": {
+      "description": "Advanced presets for research applications",
+      "presets": [
+        "morris_thorne_large",
+        "rotating_wormhole",
+        "charged_wormhole",
+        "braneworld_wormhole"
+      ],
+      "difficulty_level": "advanced",
+      "computational_requirements": "high"
+    },
+
+    "quantum_gravity_suite": {
+      "description": "Presets for studying quantum gravity effects",
+      "presets": [
+        "morris_thorne_micro",
+        "euclidean_wormhole",
+        "braneworld_wormhole"
+      ],
+      "difficulty_level": "expert",
+      "computational_requirements": "very_high"
+    },
+
+    "benchmarking_suite": {
+      "description": "Presets for performance benchmarking",
+      "presets": [
+        "morris_thorne_micro",
+        "morris_thorne_standard",
+        "morris_thorne_large"
+      ],
+      "difficulty_level": "any",
+      "computational_requirements": "scalable"
+    }
+  },
+
+  "usage_guidelines": {
+    "selecting_presets": [
+      "Choose morris_thorne_standard for general studies and demonstrations",
+      "Use ellis_wormhole for historical comparisons and simpler geometry",
+      "Select schwarzschild_based for realistic mass distributions",
+      "Choose rotating_wormhole for angular momentum studies",
+      "Use charged_wormhole for electromagnetic field investigations",
+      "Select braneworld_wormhole for higher-dimensional physics"
+    ],
+
+    "computational_considerations": [
+      "Microscopic wormholes require quantum gravity corrections",
+      "Large wormholes need high spatial resolution",
+      "Rotating and charged wormholes increase computational complexity",
+      "Braneworld wormholes require significant computational resources"
+    ],
+
+    "physics_validity": [
+      "All presets violate some energy conditions (required for traversability)",
+      "Stability analysis should always be performed",
+      "Quantum corrections become important at small scales",
+      "Classical solutions may not be valid in all regimes"
+    ],
+
+    "customization_tips": [
+      "Start with a preset and modify parameters gradually",
+      "Maintain consistency between wormhole and exotic matter parameters",
+      "Consider computational resources when increasing resolution",
+      "Validate results against known analytical solutions where possible"
+    ]
+  },
+
+  "parameter_relationships": {
+    "throat_radius_effects": {
+      "small_radius": "High curvature, strong quantum effects, requires quantum gravity",
+      "medium_radius": "Balanced classical-quantum regime, good for most studies",
+      "large_radius": "Classical regime dominant, suitable for macroscopic studies"
+    },
+
+    "exotic_matter_requirements": {
+      "energy_density": "Must be negative for traversability",
+      "equation_of_state": "w < -1 typically required",
+      "distribution": "Concentrated at throat minimizes total exotic matter"
+    },
+
+    "stability_correlations": {
+      "throat_size_stability": "Larger throats generally more stable",
+      "mass_stability": "Optimal mass exists for maximum stability",
+      "rotation_stability": "Moderate rotation can enhance stability"
+    }
+  },
+
+  "validation_checks": {
+    "required_conditions": [
+      "Throat radius > 0",
+      "Energy density < 0 (for exotic matter)",
+      "Metric signature (-,+,+,+)",
+      "Asymptotic flatness (where applicable)"
+    ],
+
+    "physics_consistency": [
+      "Einstein field equations satisfied",
+      "Junction conditions at interfaces",
+      "Causality preserved",
+      "Unitarity maintained in quantum sector"
+    ],
+
+    "numerical_stability": [
+      "Convergence with resolution",
+      "Stability under perturbations",
+      "Conservation laws satisfied",
+      "Gauge invariance maintained"
+    ]
+  }
+}

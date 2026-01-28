@@ -1,0 +1,53 @@
+# Requirements for Quantum-Enhanced AI Reasoning Architecture
+# Phase 1: Quantum Superposition Attention & Phase 2: Truth Verification Network
+
+# Core dependencies
+numpy>=1.21.0
+torch>=2.0.0
+qutip>=4.7.0
+scipy>=1.7.0
+
+# API and web services
+fastapi>=0.104.0
+uvicorn>=0.24.0
+pydantic>=2.0.0
+requests>=2.31.0
+
+# Data processing
+pandas>=1.5.0
+matplotlib>=3.5.0
+
+# Optional dependencies for enhanced functionality
+# Uncomment if you want advanced features
+
+# Advanced NLP (for better text similarity)
+# sentence-transformers>=2.2.0
+# transformers>=4.30.0
+
+# Enhanced quantum simulation
+# cirq>=1.0.0
+# pennylane>=0.30.0
+
+# Database support (for storing verification history)
+# sqlalchemy>=2.0.0
+# sqlite3  # Built into Python
+
+# Enhanced plotting
+# plotly>=5.0.0
+# seaborn>=0.11.0
+
+# Development and testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+
+# Logging and monitoring
+# rich>=13.0.0  # For enhanced console output
+# wandb>=0.15.0  # For experiment tracking
+
+# Note: Ensure you have Ollama installed and running for local LLM support
+# Installation: https://ollama.ai/
+# 
+# Recommended Ollama models for truth verification:
+# ollama pull llama2:7b
+# ollama pull codellama:7b
+# ollama pull mistral:7b

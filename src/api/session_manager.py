@@ -20,19 +20,20 @@ class SessionManager:
             session_id = str(uuid.uuid4())
         
         # Dependency Injection (similar to CLI setup)
-        # 1. LLM Provider
-        # TODO: Allow configuration via env vars or request
-        api_key = os.getenv("ANTHROPIC_API_KEY", "mock-key")
-        # Defaulting to Mock if key is missing/mock, or Anthropic otherwise
-        # For production flexibility, we should inspect environment more robustly
-        
-        from src.llm.providers import LLMProvider, MockProvider, ClaudeProvider as AnthropicProvider
-        
+        # LLM Provider selection
+        from src.llm.providers import LLMProvider, MockProvider, ClaudeProvider, OpenAIProvider
+
         provider: LLMProvider
-        if not api_key or api_key.startswith("mock"):
-            provider = MockProvider()
+        provider_name = os.getenv("LLM_PROVIDER", "").lower()
+
+        if provider_name in ("openrouter", "openai"):
+            provider = OpenAIProvider(api_key=os.getenv("OPENAI_API_KEY"))
         else:
-            provider = AnthropicProvider(api_key=api_key)
+            api_key = os.getenv("ANTHROPIC_API_KEY", "mock-key")
+            if not api_key or api_key.startswith("mock"):
+                provider = MockProvider()
+            else:
+                provider = ClaudeProvider(api_key=api_key)
 
         # 2. Key components
         from src.tutor.verification_api import TutorVerificationAPI

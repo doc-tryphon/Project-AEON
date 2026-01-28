@@ -389,8 +389,9 @@ class OpenAIProvider(LLMProvider):
 
         try:
             import openai
-            self._client = openai.OpenAI(api_key=self._api_key)
-            self._async_client = openai.AsyncOpenAI(api_key=self._api_key)
+            base_url = os.environ.get("OPENAI_BASE_URL")
+            self._client = openai.OpenAI(api_key=self._api_key, base_url=base_url)
+            self._async_client = openai.AsyncOpenAI(api_key=self._api_key, base_url=base_url)
             self._initialized = True
             logger.info(f"OpenAI provider initialized with model {self._config.model}")
         except ImportError:
